@@ -1,0 +1,42 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>{{ type }} Page</title>
+<link rel="stylesheet" href="{% static 'users/auth_form.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    <div class="box">
+        <h2>{{ type }}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+            <div class="error">
+                {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% for field in form %}
+            <div class="form-group">
+                <label>{{ field.label }}</label>
+                {{ field }}
+
+                {% if field.errors %}
+                {% for error in field.errors %}
+                <div class="error">{{ error }}</div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

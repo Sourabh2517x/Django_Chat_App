@@ -1,0 +1,45 @@
+ body {
+     margin: 0;
+     font-family: Arial, sans-serif;
+     background-color: #f4f6f9;
+ }
+
+ nav {
+     background-color: #1e293b;
+     padding: 12px 20px;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+ }
+
+ nav a,
+ nav button {
+     color: white;
+     text-decoration: none;
+     margin-left: 15px;
+     padding: 8px 14px;
+     border-radius: 6px;
+     border: none;
+     background-color: #397ce9;
+     cursor: pointer;
+     font-size: 14px;
+ }
+
+ nav a:hover,
+ nav button:hover {
+     background-color: #2563eb;
+ }
+
+ nav form {
+     margin: 0;
+ }
+
+ hr {
+     margin: 0;
+     border: none;
+     border-top: 1px solid #ddd;
+ }
+
+ .container {
+     padding: 20px;
+ }

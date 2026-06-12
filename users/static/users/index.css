@@ -1,0 +1,40 @@
+.home-container {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.home-container h1 {
+    font-size: 36px;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    font-size: 18px;
+    color: #475569;
+    margin-bottom: 25px;
+}
+
+.home-actions a {
+    text-decoration: none;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 6px;
+    background-color: #46556d;
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.home-actions a:hover {
+    background-color: #1e293b;
+}
+
+.welcome-box {
+    background: white;
+    padding: 40px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}

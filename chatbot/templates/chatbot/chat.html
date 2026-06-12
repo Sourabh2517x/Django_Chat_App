@@ -1,0 +1,63 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Chat</title>
+<link rel="stylesheet" href="{% static 'chatbot/chat.css' %}">
+{% endblock %}
+{% block body %}
+<div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/chatbot/chat" class="conversation-item">New Chat</a>
+        <h3>Your Chats</h3>
+        <div class="conversation-list">
+            {% for convo in conversations %}
+            <a href="?conversation_id={{ convo.id }}" class="conversation-item">
+                {{ convo.title}}
+            </a>
+            {% endfor %}
+        </div>
+        <div class="usage-box">
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar">
+                </div>
+            </div>
+
+            <p class="token-used">
+                <span id="tokens-used">{{ subscription.tokens_used }}</span> /
+                <span id="token-limit">{{ subscription.plan.token_limit }}</span> tokens
+            </p>
+
+            <div class="plan-row">
+                <a class="plan" href="{% url 'plan' %}">{{ subscription.plan.plan_name }}</a>
+            </div>
+
+            <div class="user-info">
+                {{ request.user.username }}
+            </div>
+
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-box">
+            {% for msg in messages %}
+            <div class="{% if msg.sender == 'user' %}user-msg{% else %}bot-msg{% endif %}">
+                {{ msg.content|safe }}
+            </div>
+            {% endfor %}
+        </div>
+        <form method="post" class="chat-input-area" id="chat-form">
+            {% csrf_token %}
+            <input type="hidden" name="conversation_id" id="conversation_id" value="{{ conversation_id }}">
+            <textarea name="message" id="message-input" class="chat-input" rows="1" placeholder="Type your message..."
+                required></textarea>
+            <button type="submit" class="send-btn">Send</button>
+        </form>
+
+    </div>
+</div>
+<script src="{% static 'chatbot/chat.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,110 @@
+/* Page layout */
+.plans-container {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+/* Title */
+.plans-title {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Grid */
+.plans-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Card */
+.plan-card {
+    background: #273444;
+    border-radius: 16px;
+    padding: 25px;
+    padding-top: 4px;
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #334155;
+    position: relative;
+}
+
+/* Hover effect */
+.plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Plan name */
+.plan-name {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* Price */
+.plan-price {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Description */
+.plan-description {
+    font-size: 14px;
+    color: #cbd5f5;
+    margin-bottom: 15px;
+}
+
+/* Tokens */
+.token-limit {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #94a3b8;
+}
+
+/* Features */
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+    color: #cbd5f5;
+}
+
+.features li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.check-item::before {
+    content: "✔";
+    margin-right: 6px;
+    color: white;
+}
+
+/* Button */
+.choose-btn {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.choose-btn:hover {
+    background: #2563eb;
+}
+
+
+

@@ -1,0 +1,48 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Plans</title>
+<link rel="stylesheet" href="{% static 'chatbot/plan.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="plans-container">
+    <h1 class="plans-title">Choose Your Plan</h1>
+
+    <div class="plans-grid">
+        {% for plan in plans %}
+        <div class="plan-card">
+
+            <h2 class="plan-name">{{ plan.get_plan_name_display }}</h2>
+
+            <p class="plan-price">
+                ${{ plan.price }}/month
+            </p>
+
+            <p class="plan-description">
+                {{ plan.plan_description }}
+            </p>
+
+            <p class="token-limit">
+                {{ plan.token_limit }} tokens / week
+            </p>
+
+            <ul class="features">
+                {% for key, value in plan.features.items %}
+                <li class="check-item">{{ value }}</li>
+                {% endfor %}
+            </ul>
+
+                <button class="choose-btn">
+                    {% if plan == current_plan %}
+                    Current Plan
+                    {% else %}
+                    Upgrade
+                    {% endif %}
+                </button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
